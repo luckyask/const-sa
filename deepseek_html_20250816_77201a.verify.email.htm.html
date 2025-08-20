@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Email | The Sierra Suites</title>
+  <!-- Use your existing CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Verify Your Email</h2>
+      <p>We sent a link to <strong id="user-email"></strong>. Click it to confirm your account.</p>
+      <button onclick="resendEmail()" class="btn btn-primary">Resend Email</button>
+    </div>
+  </div>
+
+  <script>
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    document.getElementById("user-email").textContent = localStorage.getItem("tempEmail");
+
+    async function resendEmail() {
+      const { error } = await supabase.auth.resend({
+        type: "signup",
+        email: localStorage.getItem("tempEmail")
+      });
+      if (error) alert("Error: " + error.message);
+      else alert("Email resent!");
+    }
+  </script>
+</body>
+</html>

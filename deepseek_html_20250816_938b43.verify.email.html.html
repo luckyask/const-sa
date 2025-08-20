@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Email | The Sierra Suites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Verify Your Email</h2>
+      <p>We sent a verification link to <strong id="user-email"></strong></p>
+      <button onclick="resendEmail()" class="btn btn-primary">Resend Email</button>
+      <div class="auth-footer">
+        <a href="login.html">Back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="supabase.js"></script>
+  <script>
+    // Show stored email
+    document.getElementById("user-email").textContent = localStorage.getItem('tempEmail') || 'your email';
+
+    async function resendEmail() {
+      const email = localStorage.getItem('tempEmail');
+      if (!email) return;
+      
+      const { error } = await supabase.auth.resend({
+        type: "signup",
+        email: email
+      });
+      
+      if (error) alert("Error: " + error.message);
+      else alert("Verification email resent!");
+    }
+  </script>
+</body>
+</html>

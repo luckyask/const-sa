@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | The Sierra Suites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="The Sierra Suites Logo">
+                <span>The Sierra Suites</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Create Your Account</h1>
+                <p>Get started with your 14-day free trial. No credit card required.</p>
+            </div>
+            
+            <form class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="you@yourcompany.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-building"></i>
+                        <input type="text" id="company" placeholder="Your Construction Company" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter">
+                            <span class="strength-bar weak"></span>
+                            <span class="strength-bar"></span>
+                            <span class="strength-bar"></span>
+                        </div>
+                        <span class="strength-text">Password strength: Weak</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="plan">Select Plan</label>
+                    <select id="plan" required>
+                        <option value="" disabled selected>Choose your plan</option>
+                        <option value="starter">Starter - $28/month</option>
+                        <option value="pro">Professional - $79/month</option>
+                        <option value="enterprise">Enterprise - $199/month</option>
+                    </select>
+                </div>
+                
+                <div class="form-group terms-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Subscribe to product updates and tips (optional)
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Start Free Trial</button>
+                
+                <div class="auth-divider">
+                    <span>or sign up with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="btn btn-google">
+                        <img src="assets/google-icon.svg" alt="Google">
+                        Google
+                    </button>
+                    <button type="button" class="btn btn-microsoft">
+                        <img src="assets/microsoft-icon.svg" alt="Microsoft">
+                        Microsoft
+                    </button>
+                </div>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="login.html">Log in</a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="auth-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>FieldSnap Documentation</h3>
+                <p>Capture, organize, and share jobsite photos with GPS location and voice notes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>TaskFlow Scheduling</h3>
+                <p>Plan and assign tasks with our intuitive calendar and team scheduling tools.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Reporting & Analytics</h3>
+                <p>Get real-time insights into your business performance with customizable reports.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="auth-footer">
+        <div class="container">
+            <p>&copy; 2023 The Sierra Suites. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</script>
+// Initialize Supabase (replace with your credentials)
+const supabaseUrl = 'https://qjswuwcqyzeuqqqltykz.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqc3d1d2NxeXpldXFxcWx0eWt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyMjk0MDUsImV4cCI6MjA3MDgwNTQwNX0.qgH8DMJEoJVuYOXSyr0RAj01Yt7bBR8EYL6qw3YXyAs';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Modified register function to match your existing form
+async function register() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const companyName = document.getElementById("company").value;
+  const firstName = document.getElementById("firstName").value;
+  const lastName = document.getElementById("lastName").value;
+  const plan = document.getElementById("plan").value;
+
+  // 1. Create user
+  const { data: { user }, error: authError } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: { 
+        first_name: firstName,
+        last_name: lastName,
+        company_name: companyName 
+      }
+    }
+  });
+
+  if (authError) {
+    alert("Error: " + authError.message);
+    return;
+  }
+
+  // 2. Create company (with tier-based user limits)
+  const userLimit = plan === "starter" ? 1 : plan === "pro" ? 5 : 9999;
+  const { data: company, error: companyError } = await supabase
+    .from("companies")
+    .insert([
+      { 
+        name: companyName,
+        subscription_tier: plan,
+        user_limit: userLimit 
+      }
+    ])
+    .select()
+    .single();
+
+  if (companyError) {
+    alert("Company creation failed: " + companyError.message);
+    return;
+  }
+
+  // 3. Link user to company as admin
+  const { error: linkError } = await supabase
+    .from("user_companies")
+    .insert([
+      {
+        user_id: user.id,
+        company_id: company.id,
+        role: "admin",
+        is_admin: true
+      }
+    ]);
+
+  if (linkError) alert("Link error: " + linkError.message);
+  else {
+    alert("Success! Check your email to verify.");
+    window.location.href = "verify-email.html"; // Redirect to verification page
+  }
+}
+</script>
+</body>
+</html>

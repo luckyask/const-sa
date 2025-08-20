@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportCenter | The Sierra Suites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/logo-icon.svg" alt="The Sierra Suites Logo">
+                    <span>The Sierra Suites</span>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="assets/user-avatar.jpg" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <h4>John Contractor</h4>
+                    <p>Johnson Builders</p>
+                </div>
+                <button class="profile-menu">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="taskflow.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>TaskFlow</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="fieldsnap.html">
+                            <i class="fas fa-camera"></i>
+                            <span>FieldSnap</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="quotehub.html">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>QuoteHub</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="reportcenter.html">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>ReportCenter</span>
+                        </a>
+                    </li>
+                    <li class="nav-divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>CRM</span>
+                            <span class="upgrade-badge">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-contract"></i>
+                            <span>Proposals</span>
+                            <span class="upgrade-badge">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-tools"></i>
+                            <span>Subcontractors</span>
+                            <span class="upgrade-badge">Enterprise</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="upgrade-card">
+                    <h4>Upgrade to Pro</h4>
+                    <p>Unlock advanced reporting and business intelligence</p>
+                    <a href="pricing.html" class="btn btn-primary btn-small">Upgrade Now</a>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2>ReportCenter</h2>
+                    <div class="report-selector">
+                        <select id="report-type">
+                            <option>Time Tracking</option>
+                            <option>Project Progress</option>
+                            <option>Financial Overview</option>
+                            <option>Task Completion</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="date-range">
+                        <select id="report-range">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>This month</option>
+                            <option>Last month</option>
+                            <option>Custom range...</option>
+                        </select>
+                    </div>
+                    <div class="topbar-actions">
+                        <button class="btn btn-primary" id="export-report-btn">
+                            <i class="fas fa-file-export"></i>
+                            Export
+                        </button>
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">1</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-container">
+                <div class="report-summary">
+                    <div class="summary-card">
+                        <h4>Total Hours Tracked</h4>
+                        <p class="summary-value">84.5</p>
+                        <p class="summary-change up">+12% from last period</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Active Projects</h4>
+                        <p class="summary-value">3</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Tasks Completed</h4>
+                        <p class="summary-value">24</p>
+                        <p class="summary-change up">+8% from last period</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Estimated Revenue</h4>
+                        <p class="summary-value">$24,500</p>
+                    </div>
+                </div>
+                
+                <div class="report-charts">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Time Tracking</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="timeChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Project Progress</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Task Completion</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="taskChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Financial Overview</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="financialChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-details">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Recent Time Entries</h3>
+                            <a href="#" class="btn btn-link">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="time-entries">
+                                <div class="time-entry">
+                                    <div class="entry-info">
+                                        <h4>Maple Street Renovation</h4>
+                                        <p>Kitchen cabinet installation</p>
+                                    </div>
+                                    <div class="entry-details">
+                                        <span>Jun 10, 2023</span>
+                                        <span class="entry-hours">6.5 hours</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="time-entry">
+                                    <div class="entry-info">
+                                        <h4>Oakwood Office Build</h4>
+                                        <p>Framing inspection</p>
+                                    </div>
+                                    <div class="entry-details">
+                                        <span>Jun 8, 2023</span>
+                                        <span class="entry-hours">4 hours</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="time-entry">
+                                    <div class="entry-info">
+                                        <h4>Pine Ridge Addition</h4>
+                                        <p>Foundation work</p>
+                                    </div>
+                                    <div class="entry-details">
+                                        <span>Jun 5, 2023</span>
+                                        <span class="entry-hours">8 hours</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="time-entry">
+                                    <div class="entry-info">
+                                        <h4>Maple Street Renovation</h4>
+                                        <p>Plumbing rough-in</p>
+                                    </div>
+                                    <div class="entry-details">
+                                        <span>Jun 3, 2023</span>
+                                        <span class="entry-hours">5.5 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Project Milestones</h3>
+                            <a href="#" class="btn btn-link">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="milestones">
+                                <div class="milestone-item completed">
+                                    <div class="milestone-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="milestone-content">
+                                        <h4>Framing Complete</h4>
+                                        <p>Oakwood Office Build • Completed Jun 8</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="milestone-item completed">
+                                    <div class="milestone-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="milestone-content">
+                                        <h4>Plumbing Rough-In</h4>
+                                        <p>Maple Street Renovation • Completed Jun 3</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="milestone-item upcoming">
+                                    <div class="milestone-icon">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="milestone-content">
+                                        <h4>Electrical Inspection</h4>
+                                        <p>Maple Street Renovation • Due Jun 15</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="milestone-item upcoming">
+                                    <div class="milestone-icon">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="milestone-content">
+                                        <h4>Drywall Installation</h4>
+                                        <p>Oakwood Office Build • Due Jun 22</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
